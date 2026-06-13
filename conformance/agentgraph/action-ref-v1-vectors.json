@@ -1,0 +1,74 @@
+{
+  "suite": "agentgraph-action-ref-v1",
+  "spec": "draft-giskard-aeoess-action-ref Section 3",
+  "derivation": "action_ref = lowercase-hex(SHA-256(JCS({agent_id, action_type, scope, timestamp})))  [RFC 8785 JCS; timestamp = RFC 3339 ms string]",
+  "author_set": "AgentGraph (agentgraph-co/agentgraph) — independent implementation; rfc8785 (Python) + Node built-ins",
+  "spec_anchor": {
+    "name": "spec-appendix-A-vector-1 (NEXUS)",
+    "preimage": {
+      "agent_id": "nexus-agent-xa12.onrender.com",
+      "action_type": "oracle.signal",
+      "scope": "BTC",
+      "timestamp": "2025-05-18T11:40:31.000Z"
+    },
+    "jcs": "{\"action_type\":\"oracle.signal\",\"agent_id\":\"nexus-agent-xa12.onrender.com\",\"scope\":\"BTC\",\"timestamp\":\"2025-05-18T11:40:31.000Z\"}",
+    "action_ref": "fdd7f810499f06be24355ca8e2bfb8c4b965cc80c838f41fa074683443d89f5a"
+  },
+  "vectors": [
+    {
+      "name": "trust-scan-attestation",
+      "preimage": {
+        "agent_id": "did:web:agentgraph.co:agent:scanner",
+        "action_type": "scan.attest",
+        "scope": "repo:read",
+        "timestamp": "2026-06-12T16:00:00.000Z"
+      },
+      "jcs": "{\"action_type\":\"scan.attest\",\"agent_id\":\"did:web:agentgraph.co:agent:scanner\",\"scope\":\"repo:read\",\"timestamp\":\"2026-06-12T16:00:00.000Z\"}",
+      "action_ref": "13db870d8d35afe37cde382b7f09fc98507e51096bdcf7fcaf9fde593bf6197e"
+    },
+    {
+      "name": "identity-verify",
+      "preimage": {
+        "agent_id": "did:web:agentgraph.co:agent:verifier",
+        "action_type": "identity.verify",
+        "scope": "did:resolve",
+        "timestamp": "2026-06-12T16:05:00.000Z"
+      },
+      "jcs": "{\"action_type\":\"identity.verify\",\"agent_id\":\"did:web:agentgraph.co:agent:verifier\",\"scope\":\"did:resolve\",\"timestamp\":\"2026-06-12T16:05:00.000Z\"}",
+      "action_ref": "e0a8f0f531eb4553b8f285a16f39b49876b853c57198c9aa15eb3955e8a17da6"
+    },
+    {
+      "name": "payment-charge (matches v0.4 verifier fixture)",
+      "preimage": {
+        "agent_id": "did:web:agentgraph.co:agent:demo-001",
+        "action_type": "payment.charge",
+        "scope": "payments:write",
+        "timestamp": "2026-06-12T16:00:00.000Z"
+      },
+      "jcs": "{\"action_type\":\"payment.charge\",\"agent_id\":\"did:web:agentgraph.co:agent:demo-001\",\"scope\":\"payments:write\",\"timestamp\":\"2026-06-12T16:00:00.000Z\"}",
+      "action_ref": "9a41b1c968b377be9bc446aec7530834cf1a8770b290e6f400a6d2ba0d8df8a9"
+    },
+    {
+      "name": "empty-scope-distinct-from-absent",
+      "preimage": {
+        "agent_id": "did:web:agentgraph.co:agent:demo-001",
+        "action_type": "oracle.signal",
+        "scope": "",
+        "timestamp": "2026-06-12T16:10:00.000Z"
+      },
+      "jcs": "{\"action_type\":\"oracle.signal\",\"agent_id\":\"did:web:agentgraph.co:agent:demo-001\",\"scope\":\"\",\"timestamp\":\"2026-06-12T16:10:00.000Z\"}",
+      "action_ref": "a2ceb4d927092fe01e4d4d0e9f3c38d17c799154bda521edbf969f20daaa9798"
+    },
+    {
+      "name": "did-key-self-certifying",
+      "preimage": {
+        "agent_id": "did:key:z6MkpTHR8VNsBxYAAWHut2Geadd9jSwuBV8xRoAnwWsdvktH",
+        "action_type": "cert.issue",
+        "scope": "cred:write",
+        "timestamp": "2026-06-12T16:15:00.000Z"
+      },
+      "jcs": "{\"action_type\":\"cert.issue\",\"agent_id\":\"did:key:z6MkpTHR8VNsBxYAAWHut2Geadd9jSwuBV8xRoAnwWsdvktH\",\"scope\":\"cred:write\",\"timestamp\":\"2026-06-12T16:15:00.000Z\"}",
+      "action_ref": "d69f19f0d24212923079a1f844ac1a8986d5a6c673f826bb7d19bb38263d14ea"
+    }
+  ]
+}
