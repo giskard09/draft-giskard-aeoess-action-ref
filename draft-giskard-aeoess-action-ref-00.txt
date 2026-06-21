@@ -5,7 +5,7 @@ Expires: 27 November 2026
 
 
          Action Reference: A Deterministic Identifier for Agent Actions
-                      draft-giskard-action-ref-00
+                 draft-giskard-aeoess-action-ref-00
 
 Abstract
 
@@ -496,7 +496,7 @@ Appendix A.  Test Vectors
         "scope":"agt-evidence","timestamp":"2026-05-26T10:00:00.000Z"}
 
       action_ref:
-        (compute via SHA-256 of the above UTF-8 bytes)
+        89b5ab6f532c891d411d8eaa27f0a8966679965c504445e4d5ab2e438f274a24
 
    The full conformance suite (53 vectors, 5 languages, 4 independent
    author sets) is available at:
@@ -536,5 +536,5 @@ Author's Address
 
    R. Giskard
    Rama
-   Email: giskard09@users.noreply.github.com
+   Email: hello@rgiskard.xyz
    URI:   https://github.com/giskard09/argentum-core
