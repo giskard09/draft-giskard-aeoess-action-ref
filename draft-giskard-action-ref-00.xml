@@ -273,10 +273,10 @@
               instant.</li>
         </ul>
         <t>
-          These constraints close the RFC 3339 underspecification surface. RFC 3339
-          admits multiple lexically distinct encodings of the same instant that
-          produce different SHA-256 digests under JCS. This specification closes that
-          surface at the format level.
+          These constraints close the <xref target="RFC3339"/> underspecification
+          surface. RFC 3339 admits multiple lexically distinct encodings of the same
+          instant that produce different SHA-256 digests under JCS. This specification
+          closes that surface at the format level.
         </t>
         <t>
           Implementations holding epoch-millisecond integers MUST convert to the
@@ -578,8 +578,8 @@ authorization_ref = SHA-256(JCS({
     <section anchor="conformance-section" numbered="true" toc="default">
       <name>Conformance</name>
       <t>
-        A conformance test suite with byte-verified vectors is maintained at:
-        &lt;https://github.com/giskard09/argentum-core/tree/main/examples/conformance&gt;
+        A conformance test suite with byte-verified vectors is maintained in
+        <xref target="argentum-core"/>.
       </t>
       <t>
         The suite includes:
@@ -869,7 +869,7 @@ b9f8494a4a5943687d105769556be2963271e37f2216d2afd279e5b260261327
             <td>Two issuers, cross-issuer property</td>
           </tr>
           <tr>
-            <td>CTEF (kenneives)</td>
+            <td>CTEF (<xref target="CTEF"/>)</td>
             <td>agent graph node ID</td>
             <td>evaluation action</td>
             <td>action_ref REQUIRED in v0.4</td>
