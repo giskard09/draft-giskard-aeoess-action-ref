@@ -701,6 +701,27 @@ authorization_ref = SHA-256(JCS({
       </section>
     </section>
 
+    <section anchor="interoperability" numbered="true" toc="default">
+      <name>Interoperability Considerations</name>
+      <t>
+        action_ref is compatible with SCITT transparency logs
+        <xref target="I-D.ietf-scitt-architecture"/> as an anchoring layer.
+        A SCITT-enabled system can treat action_ref as the payload hash
+        submitted to a Transparency Service: the resulting SCITT receipt
+        provides a signed inclusion proof over the same content-addressed
+        identifier defined in this specification.
+        The on-chain anchor described in Section 6 is conceptually
+        equivalent to a SCITT receipt — both bind a content-addressed
+        identifier to an external, operator-independent timestamp — but
+        the on-chain variant does not require hardware TEE endorsement
+        or a dedicated Transparency Service deployment.
+        Implementers operating within SCITT-enabled infrastructure
+        MAY substitute a SCITT receipt for the on-chain anchor without
+        changing the action_ref derivation algorithm or the receipt
+        envelope structure defined in this document.
+      </t>
+    </section>
+
     <section anchor="iana" numbered="true" toc="default">
       <name>IANA Considerations</name>
       <t>
@@ -789,6 +810,19 @@ authorization_ref = SHA-256(JCS({
             <author initials="K." surname="kenneives" fullname="kenneives"/>
             <date year="2026" month="June"/>
           </front>
+        </reference>
+
+        <reference anchor="I-D.ietf-scitt-architecture" target="https://datatracker.ietf.org/doc/draft-ietf-scitt-architecture/">
+          <front>
+            <title>An Architecture for Trustworthy and Transparent Digital Supply Chains (SCITT)</title>
+            <author initials="H." surname="Birkholz" fullname="H. Birkholz"/>
+            <author initials="A." surname="Delignat-Lavaud" fullname="A. Delignat-Lavaud"/>
+            <author initials="C." surname="Fournet" fullname="C. Fournet"/>
+            <author initials="Y." surname="Jaeger" fullname="Y. Jaeger"/>
+            <author initials="S." surname="Lasker" fullname="S. Lasker"/>
+            <date year="2024"/>
+          </front>
+          <seriesInfo name="Internet-Draft" value="draft-ietf-scitt-architecture"/>
         </reference>
 
       </references>
