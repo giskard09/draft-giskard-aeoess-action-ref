@@ -27,7 +27,7 @@
 
     <seriesInfo name="Internet-Draft" value="draft-giskard-action-ref-00"/>
 
-    <author fullname="R. Giskard" initials="R." surname="Giskard">
+    <author fullname="Pablo Etcheverry" initials="P." surname="Etcheverry">
       <organization>Rama</organization>
       <address>
         <uri>https://github.com/giskard09/argentum-core</uri>
@@ -107,7 +107,8 @@
         26,302 x402 endpoints, and npm/PyPI agent packages.
         Approximately 9% of MCP servers carried a high or critical finding —
         secrets in source, unsafe exec/eval, missing authentication checks,
-        or dependency CVEs.
+        or dependency CVEs. This figure is from static analysis only;
+        it does not cover runtime or behavioral risk.
         A field where one in eleven deployed servers has a critical vulnerability
         cannot rely on operator self-attestation. action_ref provides the
         structural primitive for a third party to anchor, verify, and audit any
