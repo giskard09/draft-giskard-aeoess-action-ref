@@ -27,7 +27,7 @@
 
     <seriesInfo name="Internet-Draft" value="draft-giskard-action-ref-00"/>
 
-    <author fullname="R. Giskard" initials="R." surname="Giskard">
+    <author fullname="Pablo Etcheverry" initials="P." surname="Etcheverry">
       <organization>Rama</organization>
       <address>
         <uri>https://github.com/giskard09/argentum-core</uri>
@@ -98,6 +98,21 @@
         without trusting the emitter. This property is structural, not
         procedural — it follows from the derivation algorithm, not from
         operator policy.
+      </t>
+      <t>
+        The scale of the problem is already measurable. A scan of the
+        agent-ecosystem endpoint surface
+        (AgentGraph static analysis, June 2026 <xref target="AgentGraph-EvidenceAnchor"/>)
+        covered 35,689 endpoints: 7,029 MCP servers, 2,011 OpenClaw skills,
+        26,302 x402 endpoints, and npm/PyPI agent packages.
+        Approximately 9% of MCP servers carried a high or critical finding —
+        secrets in source, unsafe exec/eval, missing authentication checks,
+        or dependency CVEs. This figure is from static analysis only;
+        it does not cover runtime or behavioral risk.
+        A field where one in eleven deployed servers has a critical vulnerability
+        cannot rely on operator self-attestation. action_ref provides the
+        structural primitive for a third party to anchor, verify, and audit any
+        specific action independently of the emitting operator.
       </t>
       <t>
         This document covers:
@@ -767,6 +782,14 @@ authorization_ref = SHA-256(JCS({
           </front>
         </reference>
 
+        <reference anchor="AgentGraph-EvidenceAnchor" target="https://github.com/agentgraph-co/agentgraph">
+          <front>
+            <title>evidence-anchor-static-analysis-v0: Static analysis conformance set for action_ref</title>
+            <author initials="K." surname="kenneives" fullname="kenneives"/>
+            <date year="2026" month="June"/>
+          </front>
+        </reference>
+
       </references>
     </references>
 
@@ -833,6 +856,46 @@ authorization_ref:
 b9f8494a4a5943687d105769556be2963271e37f2216d2afd279e5b260261327
         ]]></artwork>
       </section>
+    </section>
+
+    <section anchor="external-conformance" numbered="false" toc="default">
+      <name>Appendix A.4. External Conformance Set — evidence-anchor-static-analysis-v0</name>
+      <t>
+        Contributed by: AgentGraph (agentgraph-co/agentgraph, kenneives).
+      </t>
+      <t>
+        This conformance set anchors static analysis findings from an
+        agent-ecosystem endpoint scan (35,689 endpoints; June 2026) to
+        verifiable action_ref identifiers. It contains 4 byte-verified vectors
+        covering three invariants:
+      </t>
+      <ol spacing="normal">
+        <li>
+          <strong>Scan-attest anchor:</strong> a scan.attest action from a
+          did:web scanner agent produces a stable action_ref independently
+          recomputable by any verifier without registry access.
+        </li>
+        <li>
+          <strong>Cross-implementation byte match:</strong> the spec's
+          Appendix A Vector 1 (nexus-oracle-signal,
+          fdd7f810…) reproduces byte-for-byte using the rfc8785 Python
+          library and Node built-ins — two independent implementation
+          lineages agreeing on the same digest.
+        </li>
+        <li>
+          <strong>Live ecosystem seam:</strong> the payment-charge vector's
+          action_ref is identical to the one carried in AgentGraph's v0.4
+          pre-execution-verdict-v0 verifier fixture, where it is byte-matched
+          across the haroldmalikfrimpong-ops / evidai / azender1 payment
+          seam — this derivation is exercised live, not only specified.
+        </li>
+      </ol>
+      <t>
+        All 4 vectors are byte-verified in the conformance directory
+        at &lt;https://github.com/agentgraph-co/agentgraph&gt;.
+        The set was contributed under AGT PR #21
+        (evidence-anchor-static-analysis-v0, merged 2026-06-24).
+      </t>
     </section>
 
     <section anchor="field-mapping" numbered="false" toc="default">
