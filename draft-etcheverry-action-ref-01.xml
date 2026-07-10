@@ -543,6 +543,11 @@ authorization_ref = SHA-256(JCS({
           <li>Recomputable without operator cooperation from the four decision
               record fields.</li>
           <li>MUST appear in both the pre-execution record and the receipt.</li>
+          <li>The signer of the Decision record MUST be independent of the actor/executor
+              whose action it authorizes. A party recomputing and certifying an existing
+              signed record after the fact (referee role) does not satisfy this — the
+              signer of record must be independent BEFORE the outcome is final, not
+              verifying it afterward.</li>
         </ul>
       </section>
 
