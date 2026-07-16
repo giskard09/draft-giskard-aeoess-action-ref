@@ -35,6 +35,14 @@
       </address>
     </author>
 
+    <author fullname="Kenne Ives" initials="K." surname="Ives">
+      <organization>AgentGraph</organization>
+      <address>
+        <email>kenne@agentgraph.co</email>
+        <uri>https://github.com/kenneives/agentgraph</uri>
+      </address>
+    </author>
+
     <date year="2026" month="July" day="16"/>
 
     <area>General</area>
@@ -538,6 +546,11 @@ authorization_ref = SHA-256(JCS({
           <li>Recomputable without operator cooperation from the four decision
               record fields.</li>
           <li>MUST appear in both the pre-execution record and the receipt.</li>
+          <li>The signer of the Decision record MUST be independent of the actor/executor
+              whose action it authorizes. A party recomputing and certifying an existing
+              signed record after the fact (referee role) does not satisfy this — the
+              signer of record must be independent BEFORE the outcome is final, not
+              verifying it afterward.</li>
         </ul>
       </section>
 
@@ -630,6 +643,78 @@ authorization_ref = SHA-256(JCS({
         <li>examples/conformance/presidio-x402/ — vstantch/presidio-group.eu,
             PII screening with composition, 3 vectors.</li>
       </ul>
+    </section>
+
+    <section anchor="instrumentation" numbered="true" toc="default">
+      <name>Telemetry Integration</name>
+      <t>
+        action_ref is designed to serve as a correlation key in observability
+        pipelines. This section defines the instrumentation point, attribute
+        placement, and cross-producer correlation property for implementations
+        that export telemetry records.
+      </t>
+      <section anchor="instrumentation-point" numbered="true" toc="default">
+        <name>Instrumentation Point</name>
+        <t>
+          The correct instrumentation point is the authorization gate's evaluation
+          operation: the component that receives the intent tuple, applies policy,
+          and returns a decision (allow, deny, warn, escalate, or transform).
+        </t>
+        <t>
+          Implementations MUST NOT derive action_ref at the invoking agent's span
+          level. Agent-level instrumentation does not have access to the complete
+          intent tuple (agent_id, action_type, scope, timestamp) as presented to
+          the gate. A hash computed from partial or reconstructed inputs is not
+          conformant and will not verify against independently derived values.
+        </t>
+        <t>
+          The gate SHOULD derive action_ref before returning the verdict, so that
+          the value is available for inclusion in the evaluation record at the
+          moment of decision. The derivation requires no network call or external
+          state: it is a local SHA-256 of the JCS-serialized preimage.
+        </t>
+      </section>
+      <section anchor="instrumentation-placement" numbered="true" toc="default">
+        <name>Attribute Placement</name>
+        <t>
+          When the gate's evaluation operation is recorded as a telemetry span or
+          structured event, action_ref SHOULD be included as a string attribute.
+          The gate sets this attribute from the preimage fields, not from the
+          returned decision object or any downstream record.
+        </t>
+        <t>
+          Downstream components that reference the same action (e.g., a payment
+          receipt, an audit log entry, or a screening record) MAY carry action_ref
+          as a correlation attribute. When a downstream span includes action_ref,
+          the value MUST be the 64-character lowercase hex string derived by the
+          gate for that evaluation. Re-deriving the value from a different preimage
+          is not permitted: only the gate holds the authoritative preimage at
+          decision time.
+        </t>
+      </section>
+      <section anchor="instrumentation-cross-producer" numbered="true" toc="default">
+        <name>Cross-Producer Correlation</name>
+        <t>
+          Because action_ref is derived deterministically from a fixed preimage,
+          independent components that participate in the same authorized action
+          can produce the same value without coordination. A policy gate, a
+          screening component, and an audit service each derive the same action_ref
+          from the same four fields, independently and without shared session state.
+        </t>
+        <t>
+          This property enables a verifier to correlate telemetry records across
+          producers without trusting any single emitter. A monitoring system that
+          receives evaluation events from multiple authorization components can
+          join them on action_ref without relying on an operator-provided
+          correlation key. The join is verifiable: any party holding the preimage
+          fields can recompute the key and confirm the association.
+        </t>
+        <t>
+          When multiple components record the same action_ref in the same telemetry
+          pipeline, the set of matching records constitutes an independently
+          verifiable trace of the action across system boundaries.
+        </t>
+      </section>
     </section>
 
     <section anchor="security" numbered="true" toc="default">

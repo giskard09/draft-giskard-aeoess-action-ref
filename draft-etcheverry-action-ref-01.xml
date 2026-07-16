@@ -109,23 +109,20 @@
         operator policy.
       </t>
       <t>
-        An automated static analysis of 35,689 agent-ecosystem endpoints
-        <xref target="AgentGraph-EvidenceAnchor"/> found that 636 of 7,029
-        MCP servers (~9%) carry a high or critical finding — hardcoded secrets,
-        unsafe exec/eval, missing authentication, or known-vulnerable
-        dependencies — detectable by static analysis alone.
-        This motivates an independently-verifiable evidence anchor for scan
-        results, so a relying party can confirm a verdict without trusting
-        the scanner operator.
+        The scale of the problem is already measurable. A scan of the
+        agent-ecosystem endpoint surface
+        (AgentGraph static analysis, June 2026 <xref target="AgentGraph-EvidenceAnchor"/>)
+        covered 35,689 endpoints: 7,029 MCP servers, 2,011 OpenClaw skills,
+        26,302 x402 endpoints, and npm/PyPI agent packages.
+        Approximately 9% of MCP servers carried a high or critical finding —
+        secrets in source, unsafe exec/eval, missing authentication checks,
+        or dependency CVEs. This figure is from static analysis only;
+        it does not cover runtime or behavioral risk.
+        A field where one in eleven deployed servers has a critical vulnerability
+        cannot rely on operator self-attestation. action_ref provides the
+        structural primitive for a third party to anchor, verify, and audit any
+        specific action independently of the emitting operator.
       </t>
-      <aside>
-        <t>
-          This figure covers static analysis only; it does not cover runtime
-          or behavioral risk. Methodology: AgentGraph EvidenceAnchor static
-          analysis conformance set, June 2026
-          <xref target="AgentGraph-EvidenceAnchor"/>.
-        </t>
-      </aside>
       <t>
         This document covers:
       </t>
@@ -786,45 +783,7 @@ authorization_ref = SHA-256(JCS({
           the agent_id from the operator. Implementations MUST use stable,
           publicly disclosed agent identifiers.
         </t>
-        <t>
-          The operator-independence property can be satisfied in two distinct
-          ways, and implementers SHOULD state which one applies. In the
-          <strong>internally-consistent</strong> case, the verifier's own
-          recomputation of action_ref from the disclosed preimage fields is
-          sufficient: the digest either matches or it does not, and no party
-          external to the emitter and the verifier needs to attest to
-          anything. In the <strong>externally-witnessed</strong> case, byte
-          recomputation alone does not close the loop — the property also
-          depends on a step that could not have been skipped or backdated by
-          the operator, such as a timestamp or inclusion proof from a system
-          the operator does not control (e.g. an on-chain anchor, or a
-          SCITT receipt as described in
-          <xref target="interoperability"/>). This is not an additional
-          preimage field: it is a statement about how conformance to this
-          section is established, not about what is hashed.
-        </t>
       </section>
-    </section>
-
-    <section anchor="interoperability" numbered="true" toc="default">
-      <name>Interoperability Considerations</name>
-      <t>
-        action_ref is compatible with SCITT transparency logs
-        <xref target="I-D.ietf-scitt-architecture"/> as an anchoring layer.
-        A SCITT-enabled system can treat action_ref as the payload hash
-        submitted to a Transparency Service: the resulting SCITT receipt
-        provides a signed inclusion proof over the same content-addressed
-        identifier defined in this specification.
-        The on-chain anchor described in Section 6 is conceptually
-        equivalent to a SCITT receipt — both bind a content-addressed
-        identifier to an external, operator-independent timestamp — but
-        the on-chain variant does not require hardware TEE endorsement
-        or a dedicated Transparency Service deployment.
-        Implementers operating within SCITT-enabled infrastructure
-        MAY substitute a SCITT receipt for the on-chain anchor without
-        changing the action_ref derivation algorithm or the receipt
-        envelope structure defined in this document.
-      </t>
     </section>
 
     <section anchor="iana" numbered="true" toc="default">
@@ -915,19 +874,6 @@ authorization_ref = SHA-256(JCS({
             <author initials="K." surname="kenneives" fullname="kenneives"/>
             <date year="2026" month="June"/>
           </front>
-        </reference>
-
-        <reference anchor="I-D.ietf-scitt-architecture" target="https://datatracker.ietf.org/doc/draft-ietf-scitt-architecture/">
-          <front>
-            <title>An Architecture for Trustworthy and Transparent Digital Supply Chains (SCITT)</title>
-            <author initials="H." surname="Birkholz" fullname="H. Birkholz"/>
-            <author initials="A." surname="Delignat-Lavaud" fullname="A. Delignat-Lavaud"/>
-            <author initials="C." surname="Fournet" fullname="C. Fournet"/>
-            <author initials="Y." surname="Jaeger" fullname="Y. Jaeger"/>
-            <author initials="S." surname="Lasker" fullname="S. Lasker"/>
-            <date year="2024"/>
-          </front>
-          <seriesInfo name="Internet-Draft" value="draft-ietf-scitt-architecture"/>
         </reference>
 
       </references>
