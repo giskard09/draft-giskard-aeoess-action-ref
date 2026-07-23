@@ -5,7 +5,7 @@
 Independent Submission                                     P. Etcheverry
 Internet-Draft                                                      Rama
 Intended status: Informational                                   K. Ives
-Expires: 17 January 2027                                    16 July 2026
+Expires: 24 January 2027                                    23 July 2026
 
 
      Action Reference: A Deterministic Identifier for Agent Actions
@@ -47,13 +47,13 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 January 2027.
+   This Internet-Draft will expire on 24 January 2027.
 
 
 
 
 
-Etcheverry & Ives        Expires 17 January 2027                [Page 1]
+Etcheverry & Ives        Expires 24 January 2027                [Page 1]
 
 Internet-Draft              Action Reference                   July 2026
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Etcheverry & Ives        Expires 17 January 2027                [Page 2]
+Etcheverry & Ives        Expires 24 January 2027                [Page 2]
 
 Internet-Draft              Action Reference                   July 2026
 
@@ -165,7 +165,7 @@ Internet-Draft              Action Reference                   July 2026
 
 
 
-Etcheverry & Ives        Expires 17 January 2027                [Page 3]
+Etcheverry & Ives        Expires 24 January 2027                [Page 3]
 
 Internet-Draft              Action Reference                   July 2026
 
@@ -221,7 +221,7 @@ Internet-Draft              Action Reference                   July 2026
 
 
 
-Etcheverry & Ives        Expires 17 January 2027                [Page 4]
+Etcheverry & Ives        Expires 24 January 2027                [Page 4]
 
 Internet-Draft              Action Reference                   July 2026
 
@@ -277,7 +277,7 @@ Internet-Draft              Action Reference                   July 2026
 
 
 
-Etcheverry & Ives        Expires 17 January 2027                [Page 5]
+Etcheverry & Ives        Expires 24 January 2027                [Page 5]
 
 Internet-Draft              Action Reference                   July 2026
 
@@ -333,7 +333,7 @@ Internet-Draft              Action Reference                   July 2026
 
 
 
-Etcheverry & Ives        Expires 17 January 2027                [Page 6]
+Etcheverry & Ives        Expires 24 January 2027                [Page 6]
 
 Internet-Draft              Action Reference                   July 2026
 
@@ -389,7 +389,7 @@ Internet-Draft              Action Reference                   July 2026
 
 
 
-Etcheverry & Ives        Expires 17 January 2027                [Page 7]
+Etcheverry & Ives        Expires 24 January 2027                [Page 7]
 
 Internet-Draft              Action Reference                   July 2026
 
@@ -445,7 +445,7 @@ Internet-Draft              Action Reference                   July 2026
 
 
 
-Etcheverry & Ives        Expires 17 January 2027                [Page 8]
+Etcheverry & Ives        Expires 24 January 2027                [Page 8]
 
 Internet-Draft              Action Reference                   July 2026
 
@@ -501,7 +501,7 @@ Internet-Draft              Action Reference                   July 2026
 
 
 
-Etcheverry & Ives        Expires 17 January 2027                [Page 9]
+Etcheverry & Ives        Expires 24 January 2027                [Page 9]
 
 Internet-Draft              Action Reference                   July 2026
 
@@ -557,7 +557,7 @@ Internet-Draft              Action Reference                   July 2026
 
 
 
-Etcheverry & Ives        Expires 17 January 2027               [Page 10]
+Etcheverry & Ives        Expires 24 January 2027               [Page 10]
 
 Internet-Draft              Action Reference                   July 2026
 
@@ -613,7 +613,7 @@ Internet-Draft              Action Reference                   July 2026
 
 
 
-Etcheverry & Ives        Expires 17 January 2027               [Page 11]
+Etcheverry & Ives        Expires 24 January 2027               [Page 11]
 
 Internet-Draft              Action Reference                   July 2026
 
@@ -669,7 +669,7 @@ Internet-Draft              Action Reference                   July 2026
 
 
 
-Etcheverry & Ives        Expires 17 January 2027               [Page 12]
+Etcheverry & Ives        Expires 24 January 2027               [Page 12]
 
 Internet-Draft              Action Reference                   July 2026
 
@@ -725,7 +725,7 @@ Internet-Draft              Action Reference                   July 2026
 
 
 
-Etcheverry & Ives        Expires 17 January 2027               [Page 13]
+Etcheverry & Ives        Expires 24 January 2027               [Page 13]
 
 Internet-Draft              Action Reference                   July 2026
 
@@ -781,7 +781,7 @@ Internet-Draft              Action Reference                   July 2026
 
 
 
-Etcheverry & Ives        Expires 17 January 2027               [Page 14]
+Etcheverry & Ives        Expires 24 January 2027               [Page 14]
 
 Internet-Draft              Action Reference                   July 2026
 
@@ -837,7 +837,7 @@ Internet-Draft              Action Reference                   July 2026
 
 
 
-Etcheverry & Ives        Expires 17 January 2027               [Page 15]
+Etcheverry & Ives        Expires 24 January 2027               [Page 15]
 
 Internet-Draft              Action Reference                   July 2026
 
@@ -893,7 +893,7 @@ Appendix A.  Test Vectors
 
 
 
-Etcheverry & Ives        Expires 17 January 2027               [Page 16]
+Etcheverry & Ives        Expires 24 January 2027               [Page 16]
 
 Internet-Draft              Action Reference                   July 2026
 
@@ -949,7 +949,7 @@ A.3. authorization_ref Vector
 
 
 
-Etcheverry & Ives        Expires 17 January 2027               [Page 17]
+Etcheverry & Ives        Expires 24 January 2027               [Page 17]
 
 Internet-Draft              Action Reference                   July 2026
 
@@ -1005,7 +1005,7 @@ Appendix B.  Field Mapping for Existing Systems
 
 
 
-Etcheverry & Ives        Expires 17 January 2027               [Page 18]
+Etcheverry & Ives        Expires 24 January 2027               [Page 18]
 
 Internet-Draft              Action Reference                   July 2026
 
@@ -1061,4 +1061,4 @@ Authors' Addresses
 
 
 
-Etcheverry & Ives        Expires 17 January 2027               [Page 19]
+Etcheverry & Ives        Expires 24 January 2027               [Page 19]
