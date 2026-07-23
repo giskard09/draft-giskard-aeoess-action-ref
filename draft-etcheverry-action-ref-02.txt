@@ -5,8 +5,7 @@
 Independent Submission                                     P. Etcheverry
 Internet-Draft                                                      Rama
 Intended status: Informational                                   K. Ives
-Expires: 17 January 2027                                      AgentGraph
-                                                            16 July 2026
+Expires: 17 January 2027                                    16 July 2026
 
 
      Action Reference: A Deterministic Identifier for Agent Actions
@@ -49,6 +48,7 @@ Status of This Memo
    material or to cite them other than as "work in progress."
 
    This Internet-Draft will expire on 17 January 2027.
+
 
 
 
@@ -1044,9 +1044,9 @@ Authors' Addresses
 
 
    Kenne Ives
-   AgentGraph
-   Email: kenne@agentgraph.co
-   URI:   https://github.com/kenneives/agentgraph
+   Email: kennethives@gmail.com
+
+
 
 
 
