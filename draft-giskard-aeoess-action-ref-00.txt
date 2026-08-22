@@ -105,7 +105,7 @@ Table of Contents
    The specification has been implemented in production systems anchoring
    agent action trails on Arbitrum [ARGENTUM-CORE], validated against 53
    conformance vectors across 5 implementation languages, and recognized
-   as a referenced contribution in the AEOESS Agent Trust and
+   as a referenced contribution in the AgentGraph Agent Trust and
    Accountability Cross-Extension Framework Matrix v0.3.3 [CTEF-MATRIX]
    (row #2, "urn:mycelium:trail", CONFIRMED).
 
@@ -443,8 +443,8 @@ Table of Contents
               <https://github.com/giskard09/argentum-core/issues/7>.
 
    [CTEF-MATRIX]
-              AEOESS, "Agent Trust and Accountability Cross-Extension
-              Framework Matrix v0.3.3", 2026,
+              kenneives (AgentGraph), "Agent Trust and Accountability
+              Cross-Extension Framework Matrix v0.3.3", 2026,
               <https://github.com/agentgraph-co/agentgraph/pull/20>.
 
    [CREWAI-PR5822]
@@ -523,13 +523,15 @@ Appendix B.  Field Mapping for Existing Systems
 Acknowledgements
 
    The action_ref derivation converged from independent work by
-   azender1 (SafeAgent), the AEOESS working group, Nobulex, and
-   crewAI contributors.  The guarantee model (Layer 2 + Layer 4)
-   was co-developed with azender1.  The dual-timestamp pattern
-   (authority_verified_at_ms + revocation_check_at_ms) was first
-   published in argentum-core commit 71c01e8 (2026-05-22) and
-   recognized as an originating contribution in the AEOESS Synthesis
-   Matrix v1 (2026-05-26).
+   azender1 (SafeAgent), AEOESS (Tymofii Pidlisnyi), Nobulex, and
+   crewAI contributors.  AEOESS framed the candidate and documented
+   the gap classes; giskard09/argentum-core supplied the NEXUS
+   deployment evidence and action-ref substrate.  The guarantee model
+   (Layer 2 + Layer 4) was co-developed with azender1.  The
+   dual-timestamp pattern (authority_verified_at_ms +
+   revocation_check_at_ms) was first published in argentum-core
+   commit 71c01e8 (2026-05-22) and recognized as an originating
+   contribution in the AEOESS Synthesis Matrix v1 (2026-05-26).
 
 
 Author's Address
